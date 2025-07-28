@@ -1,6 +1,0 @@
-hadoop jar /opt/hadoop-3.2.1/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar \
-  -input /input/movies.csv \
-  -output /output/genre_count \
-  -mapper /jobs/mapper.py \
-  -reducer /jobs/reducer.py
-
