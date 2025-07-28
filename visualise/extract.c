@@ -14,12 +14,12 @@ docker cp hadoop:/tmp/genre_count.txt ./genre_count.txt
 python3 -m venv venv
 source venv/bin/activate
 
-python ./py_scripts/to_csv.py
+python visualise/py_scripts/to_csv.py
 echo "✅ Result saved to: genre_count.csv"
 
 pip install matplotlib
 
-python ./py_scripts/visualise.py
+python visualise/py_scripts/visualise.py
 
 deactivate
 
