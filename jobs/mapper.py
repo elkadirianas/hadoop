@@ -2,13 +2,19 @@
 import sys
 
 for line in sys.stdin:
-    if line.startswith("movieId"):
+    line = line.strip()
+    if not line:
         continue
-    parts = line.strip().split(',')
-    if len(parts) < 3:
+
+    # Extract genres from the end
+    try:
+        last_comma = line.rindex(',')
+        genre_part = line[last_comma + 1:]
+
+        # Handle multiple genres
+        genres = genre_part.split('|')
+        for genre in genres:
+            print("%s\t1" % genre)
+    except Exception:
         continue
-    genres_field = ','.join(parts[2:])
-    genres = genres_field.split('|')
-    for genre in genres:
-        print("{}\t1".format(genre))
 
